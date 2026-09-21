@@ -70,7 +70,8 @@ font: write `₦`, never "N" or "NGN".
 - Grid: 12 columns from `lg`. Text columns never exceed 7 of 12.
 - Keynote composition: headline centred at the top of the slide, screenshot below it, rising.
   Alternate with left-text / right-screenshot on product moments.
-- Nav: 56px tall, mark + wordmark "Asyyl" left, four links right, WhatsApp pill far right.
+- Nav: 56px tall, mark + wordmark "Asyyl" left, four links right, WhatsApp pill far right using
+  `.btn .btn-primary .btn-sm` (36px tall) so it sits inside the bar instead of filling it.
   Sticky, tone follows the slide under it (use IntersectionObserver to flip `data-tone` on the nav).
   Mobile: hamburger opens a full-screen dark slide with the four links in `text-h2` size.
 - Footer: dark slide. Mark, one line of coming-soon products, links, copyright.
@@ -94,7 +95,13 @@ One curve: `var(--ease-brand)` = `cubic-bezier(0.4, 0, 0.2, 1)`. Zero overshoot.
 Cards: 1px border goes from `--line` to `--ink` on hover over 200ms. That is the whole hover.
 
 **Hero choreography (900ms total):** headline words rise in three groups 80ms apart; lead fades
-at 300ms; buttons at 420ms; screenshot rises 40px over 900ms starting at 200ms. Nothing else moves.
+at 300ms; buttons at 420ms. **The hero screenshot does not animate.** It is the LCP element and
+Chrome will not count it as painted until any entrance animation on it ends (measured: 1,125ms of
+render delay). The product is simply there, sharp, from the first frame. Nothing else moves.
+
+Hero-only exception: the hero's own reveals may run as pre-hydration CSS keyframes
+(`.reveal-immediate` in `globals.css`) so they never wait for JavaScript. Every other reveal uses
+the `<Reveal>` component.
 
 **Signature moment, `/bms` ledger:** when the "The ledger reconciles" block enters view, two
 numbers count from 0 to `₦427,763,462.00` over 1,200ms with the brand ease, then a third line
@@ -172,7 +179,8 @@ Never publish anything from: `sms-system/qa/upgrade-rehearsal`, `qa/visual-audit
 - `npm run build` succeeds with zero warnings and exports to `out/`.
 - Every link resolves. Grep the build for `href="#"`: zero results.
 - Lighthouse mobile on every route meets section 7.
-- 375px wide: no horizontal scroll, hero headline fits in 3 lines, all tap targets 44px.
+- 375px wide: no horizontal scroll, hero headline fits in 4 lines, all tap targets 44px.
+- Screenshots at 375px fill the container width; the half-pixel-width cap applies from `md` up.
 - `prefers-reduced-motion: reduce`: every page renders complete and still.
 - Keyboard only: can reach and use every link and the mobile menu.
 - Screenshots of every route at 375px and 1440px saved to `docs/review/`.

@@ -114,6 +114,7 @@ a { color: inherit; text-underline-offset: 0.18em; }
 .btn-primary:hover { background: transparent; color: var(--ink); }
 .btn-secondary { background: transparent; color: var(--ink); }
 .btn-secondary:hover { background: var(--ink); color: var(--bg); }
+.btn-sm { font-size: var(--text-small); padding: 0.5rem 1.1rem; }
 
 /* Screenshot frame: 1px line, 12px radius, never a fake browser chrome */
 .shot { border: 1px solid var(--line); border-radius: var(--radius-shot); overflow: hidden; background: var(--bg-2); }
@@ -122,8 +123,22 @@ a { color: inherit; text-underline-offset: 0.18em; }
 /* Eyebrow label above headlines */
 .eyebrow { font-size: var(--text-eyebrow); line-height: var(--text-eyebrow--line-height); letter-spacing: var(--text-eyebrow--letter-spacing); text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
 
+/* Hero choreography begins before hydration so the LCP image is never JS-gated. */
+@keyframes reveal-enter {
+  from { opacity: 0; transform: translateY(var(--reveal-y)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-rise {
+  from { transform: translateY(var(--reveal-y)); }
+  to { transform: translateY(0); }
+}
+.reveal-immediate {
+  animation: reveal-enter var(--reveal-duration) var(--ease-brand) var(--reveal-delay) both;
+}
+.reveal-immediate[data-reveal-fade="false"] { animation-name: reveal-rise; }
+
 /* ---------- Motion safety ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
 }

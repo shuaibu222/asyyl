@@ -27,6 +27,7 @@ export const site = {
     phoneDisplay: "0703 433 3530",
     email: "asyylsms@gmail.com",
   },
+  navMenu: { open: "Open menu", close: "Close menu" },
   nav: [
     { label: "Asyyl SMS", href: "/sms" },
     { label: "Asyyl BMS", href: "/bms" },
