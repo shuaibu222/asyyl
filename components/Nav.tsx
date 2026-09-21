@@ -37,7 +37,8 @@ export function Nav() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const menu = menuRef.current;
-    const focusable = menu ? Array.from(menu.querySelectorAll<HTMLElement>(focusableSelector)) : [];
+    const menuItems = menu ? Array.from(menu.querySelectorAll<HTMLElement>(focusableSelector)) : [];
+    const focusable = toggleRef.current ? [toggleRef.current, ...menuItems] : menuItems;
     focusable[0]?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -68,8 +69,8 @@ export function Nav() {
 
   return (
     <header
-      data-tone={tone}
-      className="sticky top-0 z-50 h-14 border-b border-line bg-bg"
+      data-tone={open ? "dark" : tone}
+      className="sticky top-0 z-50 h-14 border-b border-[var(--line)] bg-[var(--bg)]"
     >
       <Container className="flex h-full items-center justify-between gap-6">
         <a href="/" className="flex min-h-11 items-center gap-3 font-display font-semibold">
@@ -88,7 +89,7 @@ export function Nav() {
               {item.label}
             </a>
           ))}
-          <Button variant="primary" href={site.cta.primary.href} className="py-2.5 text-small">
+          <Button variant="primary" href={site.cta.primary.href} className="btn-sm">
             {site.cta.primary.label}
           </Button>
         </nav>
@@ -96,7 +97,7 @@ export function Nav() {
         <button
           ref={toggleRef}
           type="button"
-          aria-label={site.name}
+          aria-label={open ? site.navMenu.close : site.navMenu.open}
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen((current) => !current)}
@@ -104,8 +105,8 @@ export function Nav() {
         >
           <span className="sr-only">{site.name}</span>
           <span aria-hidden="true" className="grid gap-1.5">
-            <span className={`block h-px w-6 bg-ink transition-transform duration-200 ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
-            <span className={`block h-px w-6 bg-ink transition-transform duration-200 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
+            <span className={`block h-px w-6 bg-[var(--ink)] transition-transform duration-200 ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
+            <span className={`block h-px w-6 bg-[var(--ink)] transition-transform duration-200 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
           </span>
         </button>
       </Container>
@@ -115,7 +116,7 @@ export function Nav() {
           ref={menuRef}
           id="mobile-navigation"
           data-tone="dark"
-          className="fixed inset-0 z-[55] flex min-h-[100svh] items-center bg-bg px-gutter pt-14"
+          className="fixed inset-0 z-[55] flex min-h-[100svh] items-center bg-[var(--bg)] px-gutter pt-14"
         >
           <nav className="w-full" aria-label={site.name}>
             <ul className="grid gap-2">

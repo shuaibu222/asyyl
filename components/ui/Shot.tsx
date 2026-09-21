@@ -13,24 +13,29 @@ function sourcesFor(shot: ShotContent, extension: "avif" | "webp") {
   return `${shot.base}-800.${extension} 800w, ${shot.base}-1440.${extension} 1440w`;
 }
 
+export function shotSizes(shot: ShotContent) {
+  const isSms = shot.base.includes("/screens/sms/");
+  const maxDisplayWidth = isSms ? shot.width / 2 : shot.width;
+  return `(min-width: 768px) ${maxDisplayWidth}px, calc(100vw - 48px)`;
+}
+
 export function Shot({ shot, loading = "lazy", fetchPriority, className = "" }: ShotProps) {
   const isSms = shot.base.includes("/screens/sms/");
   const maxDisplayWidth = isSms ? shot.width / 2 : shot.width;
-  const sizes = `(min-width: ${maxDisplayWidth}px) ${maxDisplayWidth}px, calc(100vw - 48px)`;
   const style = { "--shot-max": `${maxDisplayWidth}px` } as CSSProperties;
 
   return (
-    <div className={`shot w-full max-w-[var(--shot-max)] ${className}`} style={style}>
+    <div className={`shot w-full md:max-w-[var(--shot-max)] ${className}`} style={style}>
       <picture>
-        <source type="image/avif" srcSet={sourcesFor(shot, "avif")} sizes={sizes} />
-        <source type="image/webp" srcSet={sourcesFor(shot, "webp")} sizes={sizes} />
+        <source type="image/avif" srcSet={sourcesFor(shot, "avif")} sizes={shotSizes(shot)} />
+        <source type="image/webp" srcSet={sourcesFor(shot, "webp")} sizes={shotSizes(shot)} />
         <img
           src={`${shot.base}-${shot.width < 800 ? shot.width : 1440}.webp`}
           alt={shot.alt}
           width={shot.width}
           height={shot.height}
           loading={loading}
-          decoding="async"
+          decoding={loading === "eager" ? "sync" : "async"}
           fetchPriority={fetchPriority}
         />
       </picture>

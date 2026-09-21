@@ -56,6 +56,16 @@ const structuredData = [
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en-NG">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/AsyylSansDisplay-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          fetchPriority="high"
+        />
+      </head>
       <body>
         <Nav />
         {children}

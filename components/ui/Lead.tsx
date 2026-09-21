@@ -6,5 +6,5 @@ type LeadProps = {
 };
 
 export function Lead({ children, className = "" }: LeadProps) {
-  return <p className={`text-lead text-ink-2 ${className}`}>{children}</p>;
+  return <p className={`text-lead text-[var(--ink-2)] ${className}`}>{children}</p>;
 }
