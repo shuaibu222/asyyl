@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Footer } from "@/components/Footer";
+import { Nav } from "@/components/Nav";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -55,7 +57,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en-NG">
       <body>
+        <Nav />
         {children}
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
