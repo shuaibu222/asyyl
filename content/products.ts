@@ -45,7 +45,7 @@ export const products: Record<Product["id"], Product> = {
       {
         title: "Promotion you can review before it happens.",
         body: "Preview the whole class, mark exceptions, confirm. Restore if a mistake slips through.",
-        shot: { base: "/screens/sms/promotion", alt: "Class promotion preview for Primary 1", width: 1440, height: 900 },
+        shot: { base: "/screens/sms/promotion", alt: "Class promotion preview for Primary 6 into JSS 1", width: 1440, height: 900 },
       },
     ],
     modules: [
