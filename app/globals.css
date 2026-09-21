@@ -1,3 +1,129 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+  Asyyl design system. Owned by design; Codex must not change tokens here.
+  Monochrome keynote: sections are either light or dark slides. The only
+  colour on the page lives inside product screenshots.
+*/
+@import "tailwindcss";
+
+/* ---------- Fonts: Asyyl Sans, subset to Latin + Hausa hooks + naira ---------- */
+@font-face { font-family: "Asyyl Sans Text"; src: url("/fonts/AsyylSansText-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Asyyl Sans Text"; src: url("/fonts/AsyylSansText-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Asyyl Sans Text"; src: url("/fonts/AsyylSansText-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Asyyl Sans Display"; src: url("/fonts/AsyylSansDisplay-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Asyyl Sans Display"; src: url("/fonts/AsyylSansDisplay-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* ---------- Tailwind theme tokens ---------- */
+@theme {
+  /* Tone-aware colours. The actual values are set per section below. */
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+
+  /* Fixed greys (Apple keynote scale) for the rare place tone is not enough */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-grey-50: #f5f5f7;
+  --color-grey-300: #d2d2d7;
+  --color-grey-500: #86868b;
+  --color-grey-600: #6e6e73;
+  --color-grey-700: #424245;
+  --color-grey-800: #1d1d1f;
+
+  --font-display: "Asyyl Sans Display", "Asyyl Sans Text", system-ui, sans-serif;
+  --font-text: "Asyyl Sans Text", system-ui, sans-serif;
+
+  /* Type scale: mobile / tablet / desktop handled with clamp() */
+  --text-hero: clamp(2.75rem, 2rem + 4vw, 7rem);          /* 44 → 112 */
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.03em;
+  --text-h2: clamp(2.25rem, 1.5rem + 3vw, 4.5rem);          /* 36 → 72 */
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);        /* 24 → 36 */
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);       /* 18 → 24 */
+  --text-lead--line-height: 1.45;
+  --text-body: 1.0625rem;                                  /* 17 */
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: 0.004em;
+  --text-small: 0.9375rem;                                 /* 15 */
+  --text-small--line-height: 1.5;
+  --text-small--letter-spacing: 0.008em;
+  --text-eyebrow: 0.8125rem;                               /* 13 */
+  --text-eyebrow--line-height: 1.3;
+  --text-eyebrow--letter-spacing: 0.06em;
+
+  --spacing-gutter: 1.5rem;                                /* 24px phone gutter */
+  --container-page: 75rem;                                 /* 1200px */
+  --radius-shot: 12px;
+  --radius-pill: 999px;
+
+  /* Motion: Premium personality. Three durations, one curve, zero overshoot. */
+  --ease-brand: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-quick: 200ms;
+  --duration-enter: 450ms;
+  --duration-hero: 900ms;
+}
+
+/* ---------- Tone slides ---------- */
+:root, [data-tone="light"] {
+  --bg: #ffffff;
+  --bg-2: #f5f5f7;
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --line: #d2d2d7;
+  color-scheme: light;
+}
+[data-tone="dark"] {
+  --bg: #000000;
+  --bg-2: #1d1d1f;
+  --ink: #f5f5f7;
+  --ink-2: #a1a1a6;
+  --line: #424245;
+  color-scheme: dark;
+}
+[data-tone] { background: var(--bg); color: var(--ink); }
+
+/* ---------- Base ---------- */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  letter-spacing: var(--text-body--letter-spacing);
+  word-spacing: 0.025em;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+  color: var(--ink);
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; }
+h1 { font-weight: 700; }
+p { text-wrap: pretty; max-width: 65ch; }
+a { color: inherit; text-underline-offset: 0.18em; }
+::selection { background: var(--ink); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+/* Buttons: ink on bg, invert on hover. No other button styles exist. */
+.btn { font-family: var(--font-text); font-weight: 600; letter-spacing: 0.01em; font-size: var(--text-body); border-radius: var(--radius-pill); padding: 0.9rem 1.6rem; border: 1px solid var(--ink); transition: background var(--duration-quick) var(--ease-brand), color var(--duration-quick) var(--ease-brand); display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: transparent; color: var(--ink); }
+.btn-secondary { background: transparent; color: var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: var(--bg); }
+
+/* Screenshot frame: 1px line, 12px radius, never a fake browser chrome */
+.shot { border: 1px solid var(--line); border-radius: var(--radius-shot); overflow: hidden; background: var(--bg-2); }
+.shot img { display: block; width: 100%; height: auto; }
+
+/* Eyebrow label above headlines */
+.eyebrow { font-size: var(--text-eyebrow); line-height: var(--text-eyebrow--line-height); letter-spacing: var(--text-eyebrow--letter-spacing); text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+
+/* ---------- Motion safety ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

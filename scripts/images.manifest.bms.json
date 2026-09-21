@@ -1,0 +1,68 @@
+[
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/dashboard-light.png",
+  "out": "public/screens/bms/dashboard-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/dashboard-dark.png",
+  "out": "public/screens/bms/dashboard-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/pos-cart-light.png",
+  "out": "public/screens/bms/pos-cart-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/pos-cart-dark.png",
+  "out": "public/screens/bms/pos-cart-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/ledger-light.png",
+  "out": "public/screens/bms/ledger-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/ledger-dark.png",
+  "out": "public/screens/bms/ledger-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/trial-balance-light.png",
+  "out": "public/screens/bms/trial-balance-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/trial-balance-dark.png",
+  "out": "public/screens/bms/trial-balance-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/products-light.png",
+  "out": "public/screens/bms/products-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/products-dark.png",
+  "out": "public/screens/bms/products-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/customers-light.png",
+  "out": "public/screens/bms/customers-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/reports-light.png",
+  "out": "public/screens/bms/reports-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/developer-backup-light.png",
+  "out": "public/screens/bms/developer-backup-light"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/receipt-thermal-element.png",
+  "out": "public/screens/bms/receipt-thermal",
+  "widths": [
+   800
+  ]
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/public/screens/bms/raw/dashboard-mobile-light.png",
+  "out": "public/screens/bms/dashboard-mobile",
+  "widths": [
+   390
+  ]
+ }
+]

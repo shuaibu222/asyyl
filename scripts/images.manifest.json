@@ -1,0 +1,17 @@
+[
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/client-day/01-shell/dashboard.png","out":"public/screens/sms/dashboard"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-03-population/05-students-filtered-sss3.png","out":"public/screens/sms/students"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-08-report-sheets/03-report-global-search.png","out":"public/screens/sms/search"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-08-report-sheets/04-individual-approved-report.png","out":"public/screens/sms/report-sheet"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/client-day/08-receipt/fees-a5.png","out":"public/screens/sms/receipt-a5","widths":[700]},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/client-day/08-receipt/fees-thermal.png","out":"public/screens/sms/receipt-thermal","widths":[378]},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-06-result-workflows/04-imported-mathematics-sheet.png","out":"public/screens/sms/results-import"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-10-promotion-access/01-primary-one-ready.png","out":"public/screens/sms/promotion"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-07-hrm-workflows/05-payroll-approved.png","out":"public/screens/sms/payroll"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-09-finance-workflows/04-daily-close-sealed.png","out":"public/screens/sms/daily-close"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-11-settings-developer-maintenance/06-backup-created.png","out":"public/screens/sms/backup"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-11-settings-developer-maintenance/04-lan-check.png","out":"public/screens/sms/lan"},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-03-population/07-large-student-directory-mobile-dark.png","out":"public/screens/sms/students-mobile-dark","widths":[375]},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-01-onboard/02-identity-mobile-dark.png","out":"public/screens/sms/onboard-mobile-dark","widths":[375]},
+  {"src":"C:/Users/pc/Desktop/Projects/sms-system/qa/release-certification/run-full-school-20260920/screenshots/phase-01-onboard/01-fresh-install-activation.png","out":"public/screens/sms/activation"}
+]
