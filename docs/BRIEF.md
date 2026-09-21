@@ -43,9 +43,10 @@ The one idea, stated in the hero: **Software that works when the internet doesn'
 
 Screenshot rule: render with `<picture>` (AVIF then WebP), explicit `width`/`height` from the
 content file, `loading="lazy"` except the hero, `decoding="async"`, inside a `.shot` frame.
-SMS captures are 1x: display them at **no more than half their pixel width** in CSS pixels
-(a 1440px capture displays at 720px max) so they stay sharp on 2x phones. BMS captures are true 2x
-(2880px source, served at 1440 and 800): they may display at up to 1440 CSS px.
+All captures are true 2x (2880px source, served at 1440 and 800 widths; receipts and phone
+captures at a single width). Display a screenshot at no more than half its served pixel width
+in CSS pixels so it stays sharp on 2x phones: a `-1440` file displays at up to 720 CSS px, so
+use `srcset` with both widths and let the browser pick.
 
 ## 4. Type
 
@@ -108,7 +109,7 @@ numbers count from 0 to `₦427,763,462.00` over 1,200ms with the brand ease, th
 "Difference ₦0.00" fades in. Runs once. Under reduced motion, final values render immediately.
 
 **Signature moment, `/sms` search:** the search screenshot is static. Above it, a fake input
-types "abdullahi" one letter per 60ms then stops. Runs once on view. Reduced motion: shows typed.
+types "Habibu" one letter per 60ms then stops. Runs once on view. Reduced motion: shows typed.
 
 Do not add: parallax, cursor effects, marquees, page transitions, loaders, particle backgrounds,
 scroll hijacking, Lottie. If it is not listed above, it does not move.

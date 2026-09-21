@@ -24,13 +24,13 @@ export const products: Record<Product["id"], Product> = {
       headline: "The whole school office. One computer.",
       lead:
         "Students, fees, results, report sheets, payroll. Installed on your own PC, working with no internet, printing on the printer you already have.",
-      shot: { base: "/screens/sms/dashboard", alt: "Asyyl SMS dashboard", width: 1366, height: 768 },
+      shot: { base: "/screens/sms/dashboard", alt: "Asyyl SMS dashboard", width: 1440, height: 900 },
     },
     moments: [
       {
         title: "Find any student in a second.",
         body: "Type a name or admission number. Search covers 1,120 students without a pause.",
-        shot: { base: "/screens/sms/search", alt: "Global search finding a student's report sheet", width: 1440, height: 900 },
+        shot: { base: "/screens/sms/search", alt: "Student directory search finding Habibu in a second", width: 1440, height: 900 },
       },
       {
         title: "A receipt the parent trusts.",

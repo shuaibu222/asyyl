@@ -1,0 +1,90 @@
+[
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/dashboard.png",
+  "out": "public/screens/sms/dashboard"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/dashboard-dark.png",
+  "out": "public/screens/sms/dashboard-dark"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/students.png",
+  "out": "public/screens/sms/students"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/search.png",
+  "out": "public/screens/sms/search"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/report-sheet.png",
+  "out": "public/screens/sms/report-sheet"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/report-sheet-print.png",
+  "out": "public/screens/sms/report-sheet-print"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/results-import.png",
+  "out": "public/screens/sms/results-import"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/results-entry.png",
+  "out": "public/screens/sms/results-entry"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/promotion.png",
+  "out": "public/screens/sms/promotion"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/payroll.png",
+  "out": "public/screens/sms/payroll"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/payments.png",
+  "out": "public/screens/sms/payments"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/daily-close.png",
+  "out": "public/screens/sms/daily-close"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/backup.png",
+  "out": "public/screens/sms/backup"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/lan.png",
+  "out": "public/screens/sms/lan"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/activation.png",
+  "out": "public/screens/sms/activation"
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/receipt-a5.png",
+  "out": "public/screens/sms/receipt-a5",
+  "widths": [
+   700
+  ]
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/receipt-thermal.png",
+  "out": "public/screens/sms/receipt-thermal",
+  "widths": [
+   378
+  ]
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/students-mobile-dark.png",
+  "out": "public/screens/sms/students-mobile-dark",
+  "widths": [
+   390
+  ]
+ },
+ {
+  "src": "C:/Users/pc/Desktop/Projects/asyyl-portfolio/assets/raw/sms/dashboard-mobile.png",
+  "out": "public/screens/sms/dashboard-mobile",
+  "widths": [
+   390
+  ]
+ }
+]

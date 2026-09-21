@@ -6,7 +6,7 @@ export const home = {
     headline: "Software that works when the internet doesn't.",
     lead:
       "Asyyl builds offline school and business systems for Nigeria. I install them on your own computer, train your staff, and stay.",
-    shot: { base: "/screens/sms/dashboard", alt: "Asyyl SMS dashboard showing a school's term position", width: 1366, height: 768 },
+    shot: { base: "/screens/sms/dashboard", alt: "Asyyl SMS dashboard showing a school's term position", width: 1440, height: 900 },
   },
 
   audience: {
@@ -39,7 +39,7 @@ export const home = {
         body:
           "Certified with 1,120 students, 60 staff, 14 classes and three terms in one database. Report sheets on A4, receipts on thermal paper, results imported from Excel in about a second.",
         href: "/sms",
-        shot: { base: "/screens/sms/students", alt: "Asyyl SMS student directory filtered to SSS 3", width: 1440, height: 900 },
+        shot: { base: "/screens/sms/students", alt: "Asyyl SMS student directory", width: 1440, height: 900 },
       },
       {
         id: "bms",
