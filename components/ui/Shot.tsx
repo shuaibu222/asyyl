@@ -14,15 +14,16 @@ function sourcesFor(shot: ShotContent, extension: "avif" | "webp") {
 }
 
 export function shotSizes(shot: ShotContent) {
-  const isSms = shot.base.includes("/screens/sms/");
-  const maxDisplayWidth = isSms ? shot.width / 2 : shot.width;
+  const maxDisplayWidth = shot.width / 2;
   return `(min-width: 768px) ${maxDisplayWidth}px, calc(100vw - 48px)`;
 }
 
 export function Shot({ shot, loading = "lazy", fetchPriority, className = "" }: ShotProps) {
-  const isSms = shot.base.includes("/screens/sms/");
-  const maxDisplayWidth = isSms ? shot.width / 2 : shot.width;
-  const style = { "--shot-max": `${maxDisplayWidth}px` } as CSSProperties;
+  const maxDisplayWidth = shot.width / 2;
+  const style = {
+    "--shot-max": `${maxDisplayWidth}px`,
+    aspectRatio: `${shot.width} / ${shot.height}`,
+  } as CSSProperties;
 
   return (
     <div className={`shot w-full md:max-w-[var(--shot-max)] ${className}`} style={style}>
@@ -35,7 +36,7 @@ export function Shot({ shot, loading = "lazy", fetchPriority, className = "" }: 
           width={shot.width}
           height={shot.height}
           loading={loading}
-          decoding={loading === "eager" ? "sync" : "async"}
+          decoding="async"
           fetchPriority={fetchPriority}
         />
       </picture>

@@ -85,9 +85,19 @@ try {
     deviceScaleFactor: 2,
     mobile: true,
   });
-  await verify("/sms/", '[data-signature="typed-search"]', "abdullahi", 900);
+  await verify("/sms/", '[data-signature="typed-search"]', "Habibu", 900);
   await verify("/bms/", '[data-signature="ledger-count"]', "Difference ₦0.00", 1600);
+  const heroMetrics = await evaluate(`(() => {
+    const grid = document.querySelector("main > section > div");
+    const copy = grid?.firstElementChild;
+    const visual = grid?.lastElementChild;
+    return {
+      copyHeight: copy?.getBoundingClientRect().height,
+      visualTop: visual?.getBoundingClientRect().top,
+    };
+  })()`);
   console.log("Verified SMS typing and BMS ledger signatures in normal and reduced motion.");
+  console.log(`BMS mobile hero metrics: ${JSON.stringify(heroMetrics)}`);
   await command("Browser.close");
 } finally {
   socket.close();
