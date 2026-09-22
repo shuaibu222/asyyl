@@ -17,10 +17,10 @@ function headlineGroups(headline: string) {
 
 export function Hero() {
   return (
-    <Slide tone="light" className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
+    <Slide tone="light" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
       <Container className="grid gap-12 pt-6 text-center md:gap-16">
-        <div className="mx-auto grid max-w-5xl justify-items-center gap-7">
-          <h1 className="text-hero w-full min-w-0 max-w-[8ch]">
+        <div className="mx-auto grid w-full min-w-0 max-w-5xl justify-items-center gap-7">
+          <h1 className="text-hero -mx-gutter w-screen min-w-0 md:mx-0 md:w-full lg:max-w-4xl">
             <Reveal as="span" stagger={0.08} duration={0.9} immediate className="inline">
               {headlineGroups(home.hero.headline).map((group) => (
                 <span key={group} className="inline-block">{group}</span>

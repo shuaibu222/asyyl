@@ -41,7 +41,7 @@ export function ProductPage({ product }: ProductPageProps) {
         imageSizes={shotSizes(product.hero.shot)}
       />
       <main>
-        <Slide tone="light" className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
+        <Slide tone="light" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
           <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="isolate grid min-h-[342px] content-start gap-6 md:min-h-0 lg:col-span-5">
               <Eyebrow>{product.kicker}</Eyebrow>

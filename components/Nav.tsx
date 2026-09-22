@@ -78,7 +78,8 @@ export function Nav() {
             src={tone === "dark" ? "/brand/asyyl-mark-white.svg" : "/brand/asyyl-mark.svg"}
             alt=""
             width="28"
-            height="28"
+            height="24"
+            className="h-6 w-7"
           />
           <span>{site.name}</span>
         </a>

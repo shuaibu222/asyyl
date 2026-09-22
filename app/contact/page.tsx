@@ -26,7 +26,7 @@ export default function ContactPage() {
 
   return (
     <main>
-      <Slide tone="dark" className="flex min-h-[calc(100svh-3.5rem)] items-center">
+      <Slide tone="dark" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center">
         <Container className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           <Reveal duration={0.9} immediate className="lg:col-span-7">
             <Headline level={1}>{contactCopy.headline}</Headline>
@@ -44,9 +44,9 @@ export default function ContactPage() {
               </a>
             </Reveal>
             <Reveal className="grid gap-2">
-              <a className="flex min-h-11 items-center text-h3 underline" href={`tel:${site.contact.phone}`}>{site.contact.phoneDisplay}</a>
-              <a className="flex min-h-11 items-center text-h3 underline" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
-              <p className="text-[var(--ink-2)]">{site.city}, {site.country}</p>
+              <a className="flex h-11 items-center text-h3 underline" href={`tel:${site.contact.phone}`}>{site.contact.phoneDisplay}</a>
+              <a className="flex h-11 items-center text-h3 underline" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+              <p className="flex h-11 items-center text-[var(--ink-2)]">{site.city}, {site.country}</p>
             </Reveal>
             <Reveal className="grid gap-5 border-t border-[var(--line)] pt-8">
               <Headline level={2}>{contactCopy.next}</Headline>

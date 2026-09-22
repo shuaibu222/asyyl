@@ -74,8 +74,8 @@ export function LedgerCount() {
 
   return (
     <div ref={rootRef} data-signature="ledger-count" className="grid gap-px bg-[var(--line)] sm:grid-cols-2">
-      <p className="bg-[var(--bg)] p-5 font-display text-h3 font-semibold tabular-nums">{formatted} Dr</p>
-      <p className="bg-[var(--bg)] p-5 font-display text-h3 font-semibold tabular-nums">{formatted} Cr</p>
+      <p className="whitespace-nowrap bg-[var(--bg)] p-5 font-display text-lead font-semibold tabular-nums">{formatted} Dr</p>
+      <p className="whitespace-nowrap bg-[var(--bg)] p-5 font-display text-lead font-semibold tabular-nums">{formatted} Cr</p>
       <p className={`bg-[var(--bg)] p-5 font-semibold transition-opacity duration-200 sm:col-span-2 ${complete ? "opacity-100" : "opacity-0"}`}>
         Difference {numberFormat.format(0)}
       </p>

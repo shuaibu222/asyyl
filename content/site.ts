@@ -18,13 +18,13 @@ export const site = {
     github: "https://github.com/shuaibu222",
   },
   contact: {
-    whatsapp: "2347034333530",
-    whatsappDisplay: "0703 433 3530",
+    whatsapp: "2348144045309",
+    whatsappDisplay: "0814 404 5309",
     whatsappUrl:
-      "https://wa.me/2347034333530?text=" +
+      "https://wa.me/2348144045309?text=" +
       encodeURIComponent("Hello Shuaibu, I saw asyylsms.com and I want to talk about "),
-    phone: "+2347034333530",
-    phoneDisplay: "0703 433 3530",
+    phone: "+2348144045309",
+    phoneDisplay: "0814 404 5309",
     email: "asyylsms@gmail.com",
   },
   navMenu: { open: "Open menu", close: "Close menu" },

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main>
-      <Slide tone="light" className="flex min-h-[calc(100svh-3.5rem)] items-center">
+      <Slide tone="light" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center">
         <Container className="grid gap-7">
           <Reveal duration={0.9} immediate>
             <Headline level={1} className="max-w-[13ch]">{services.hero.headline}</Headline>
@@ -34,7 +34,7 @@ export default function ServicesPage() {
             {services.offers.map((offer) => (
               <article key={offer.title} className="grid h-full min-h-80 content-between gap-8 border border-[var(--line)] p-7 transition-colors duration-[var(--duration-quick)] ease-[var(--ease-brand)] hover:border-[var(--ink)] md:p-9">
                 <div className="grid gap-5">
-                  <Headline level={3}>{offer.title}</Headline>
+                  <h2 className="font-display text-h3 font-semibold">{offer.title}</h2>
                   <p>{offer.body}</p>
                 </div>
                 <p className="text-small text-[var(--ink-2)]">{offer.outcome}</p>
