@@ -73,9 +73,9 @@ export function Nav() {
       className="sticky top-0 z-50 h-14 border-b border-[var(--line)] bg-[var(--bg)]"
     >
       <Container className="flex h-full items-center justify-between gap-6">
-        <a href="/" className="flex min-h-11 items-center gap-3 font-display font-semibold">
+        <a href="/" className="relative z-[60] flex min-h-11 items-center gap-3 font-display font-semibold">
           <img
-            src={tone === "dark" ? "/brand/asyyl-mark-white.svg" : "/brand/asyyl-mark.svg"}
+            src={open || tone === "dark" ? "/brand/asyyl-mark-white.svg" : "/brand/asyyl-mark.svg"}
             alt=""
             width="28"
             height="24"

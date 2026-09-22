@@ -45,7 +45,33 @@
     "375": {
       "innerWidth": 375,
       "scrollWidth": 375,
-      "scrollHeight": 8444,
+      "scrollHeight": 8534,
+      "interactiveCount": 17,
+      "smallTargets": [],
+      "unreachable": [],
+      "hiddenReveals": 0,
+      "headlineLines": 3,
+      "internalLinkCount": 5,
+      "unresolved": []
+    },
+    "1440": {
+      "innerWidth": 1440,
+      "scrollWidth": 1425,
+      "scrollHeight": 7992,
+      "interactiveCount": 21,
+      "smallTargets": [],
+      "unreachable": [],
+      "hiddenReveals": 0,
+      "headlineLines": 3,
+      "internalLinkCount": 5,
+      "unresolved": []
+    }
+  },
+  "bms": {
+    "375": {
+      "innerWidth": 375,
+      "scrollWidth": 375,
+      "scrollHeight": 8057,
       "interactiveCount": 16,
       "smallTargets": [],
       "unreachable": [],
@@ -62,33 +88,7 @@
       "smallTargets": [],
       "unreachable": [],
       "hiddenReveals": 0,
-      "headlineLines": 5,
-      "internalLinkCount": 5,
-      "unresolved": []
-    }
-  },
-  "bms": {
-    "375": {
-      "innerWidth": 375,
-      "scrollWidth": 375,
-      "scrollHeight": 7967,
-      "interactiveCount": 15,
-      "smallTargets": [],
-      "unreachable": [],
-      "hiddenReveals": 0,
-      "headlineLines": 3,
-      "internalLinkCount": 5,
-      "unresolved": []
-    },
-    "1440": {
-      "innerWidth": 1440,
-      "scrollWidth": 1425,
-      "scrollHeight": 7324,
-      "interactiveCount": 19,
-      "smallTargets": [],
-      "unreachable": [],
-      "hiddenReveals": 0,
-      "headlineLines": 5,
+      "headlineLines": 2,
       "internalLinkCount": 5,
       "unresolved": []
     }
@@ -97,8 +97,8 @@
     "375": {
       "innerWidth": 375,
       "scrollWidth": 375,
-      "scrollHeight": 4752,
-      "interactiveCount": 9,
+      "scrollHeight": 4646,
+      "interactiveCount": 10,
       "smallTargets": [],
       "unreachable": [],
       "hiddenReveals": 0,
@@ -109,12 +109,12 @@
     "1440": {
       "innerWidth": 1440,
       "scrollWidth": 1425,
-      "scrollHeight": 3943,
-      "interactiveCount": 13,
+      "scrollHeight": 4102,
+      "interactiveCount": 14,
       "smallTargets": [],
       "unreachable": [],
       "hiddenReveals": 0,
-      "headlineLines": 3,
+      "headlineLines": 2,
       "internalLinkCount": 5,
       "unresolved": []
     }
@@ -123,7 +123,7 @@
     "375": {
       "innerWidth": 375,
       "scrollWidth": 375,
-      "scrollHeight": 1385,
+      "scrollHeight": 1412,
       "interactiveCount": 11,
       "smallTargets": [],
       "unreachable": [],
@@ -135,7 +135,7 @@
     "1440": {
       "innerWidth": 1440,
       "scrollWidth": 1425,
-      "scrollHeight": 1381,
+      "scrollHeight": 1285,
       "interactiveCount": 15,
       "smallTargets": [],
       "unreachable": [],

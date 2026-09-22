@@ -14,36 +14,44 @@ const lines = [
   words.slice(groupSize * 2).join(" "),
 ];
 
-const escapeXml = (value) => value
+const escapeMarkup = (value) => value
   .replaceAll("&", "&amp;")
   .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;")
-  .replaceAll('"', "&quot;");
+  .replaceAll(">", "&gt;");
 
-const font = (await readFile(new URL("../public/fonts/AsyylSansDisplay-Bold.woff2", import.meta.url))).toString("base64");
+const fontPath = fileURLToPath(new URL("../assets/fonts/AsyylSansDisplay-Bold.ttf", import.meta.url));
 const mark = await sharp(await readFile(new URL("../public/brand/asyyl-mark-white.svg", import.meta.url)))
-  .resize(48, 48)
+  .resize({ width: 48, height: 48, fit: "inside" })
   .png()
   .toBuffer();
 
-const svg = `
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    @font-face { font-family: Asyyl; src: url(data:font/woff2;base64,${font}); font-weight: 700; }
-    text { font-family: Asyyl, sans-serif; font-weight: 700; letter-spacing: -3px; }
-  </style>
-  <rect width="1200" height="630" fill="#000000" />
-  <text x="72" y="170" fill="#ffffff" font-size="86">
-    <tspan x="72" dy="0">${escapeXml(lines[0])}</tspan>
-    <tspan x="72" dy="92">${escapeXml(lines[1])}</tspan>
-    <tspan x="72" dy="92">${escapeXml(lines[2])}</tspan>
-  </text>
-</svg>`;
+const headline = await sharp({
+  text: {
+    text: `<span foreground="#ffffff">${lines.map(escapeMarkup).join("\n")}</span>`,
+    font: "Asyyl Sans Display 86",
+    fontfile: fontPath,
+    width: 1056,
+    height: 360,
+    align: "left",
+    rgba: true,
+    spacing: 6,
+  },
+}).png().toBuffer();
 
 const outputPath = fileURLToPath(new URL("../public/og.png", import.meta.url));
 
-await sharp(Buffer.from(svg))
-  .composite([{ input: mark, left: 72, top: 510 }])
+await sharp({
+  create: {
+    width: 1200,
+    height: 630,
+    channels: 4,
+    background: "#000000",
+  },
+})
+  .composite([
+    { input: headline, left: 72, top: 70 },
+    { input: mark, left: 72, top: 510 },
+  ])
   .png({ compressionLevel: 9 })
   .toFile(outputPath);
 

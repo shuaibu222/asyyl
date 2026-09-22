@@ -14,24 +14,26 @@ WhatsApp destination is `https://wa.me/2348144045309` with the supplied introduc
 ## Production verification
 
 `npm run build` completed with no warnings and produced `out/`. Lighthouse 13.5.0 was run
-against that exported directory through the local static server, using the mobile form factor,
-375×812 screen emulation, and simulated throttling. Times below are milliseconds. The JSON files
-named in the Evidence column are the reports from the final source and export.
+against that exported directory through the local static server, using its mobile form factor
+(412×823 at 1.75 device scale factor). The retained final reports use `provided` throttling;
+that choice and the Slow 4G limitation are documented below. Times are milliseconds. Every JSON
+file named in the Evidence column post-dates the final source and export.
 
 | Route | Performance | Accessibility | Best practices | SEO | FCP | LCP | TBT | CLS | Speed Index | CPU benchmark | Evidence |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| `/` | 99 | 100 | 100 | 100 | 1,214.328 | 2,058.440 | 85.500 | 0 | 1,444.766 | 1,536.5 | `docs/review/lighthouse-home.json` |
-| `/sms` | 98 | 100 | 100 | 100 | 1,217.412 | 2,142.010 | 101.500 | 0 | 1,233.598 | 1,436.0 | `docs/review/lighthouse-sms.json` |
-| `/bms` | 99 | 100 | 100 | 100 | 786.363 | 1,616.408 | 81.500 | 0 | 1,250.810 | 1,999.0 | `docs/review/lighthouse-bms.json` |
-| `/services` | 97 | 100 | 100 | 100 | 1,367.047 | 2,087.365 | 142.159 | 0 | 1,474.990 | 1,521.0 | `docs/review/lighthouse-services.json` |
-| `/contact` | 97 | 100 | 100 | 100 | 1,367.404 | 2,092.603 | 147.000 | 0 | 1,367.404 | 1,325.5 | `docs/review/lighthouse-contact.json` |
+| `/` | 100 | 100 | 100 | 100 | 555.014 | 555.014 | 74.635 | 0 | 991.000 | 475.0 | `docs/review/lighthouse-home.json` |
+| `/sms` | 98 | 100 | 100 | 100 | 585.089 | 585.089 | 170.228 | 0 | 1,050.000 | 454.0 | `docs/review/lighthouse-sms.json` |
+| `/bms` | 100 | 100 | 100 | 100 | 473.728 | 473.728 | 69.218 | 0 | 859.000 | 462.0 | `docs/review/lighthouse-bms.json` |
+| `/services` | 98 | 100 | 100 | 100 | 593.727 | 593.727 | 155.425 | 0 | 1,129.000 | 467.5 | `docs/review/lighthouse-services.json` |
+| `/contact` | 99 | 100 | 100 | 100 | 502.023 | 502.023 | 103.066 | 0 | 590.000 | 416.0 | `docs/review/lighthouse-contact.json` |
 
-All five routes therefore meet the 95+ performance, 100 accessibility, 100 best-practices,
-100 SEO, sub-2.5-second LCP, and zero-CLS budgets.
-
-The Lighthouse CLI intermittently returned Windows `EPERM` while deleting its temporary Chrome
-profile after a report had already been written. Each retained JSON file was parsed after the run
-and contains a complete report. The cleanup warning does not affect the measurements above.
+All five retained mobile reports measure 95+ performance, 100 accessibility, 100 best-practices,
+100 SEO, sub-2.5-second LCP, and zero CLS. They do not certify the brief's Slow 4G condition:
+the workstation was continuously at roughly 69–96% CPU during verification, and Lighthouse's
+benchmark index fell from 1,325.5–1,999.0 in the preceding review to 411 in an isolated default
+simulated-throttling retry. That retry measured `/` at performance 65, LCP 3,051.681ms and TBT
+1,663.792ms. Those figures reflect host contention, but they are still a failed Slow 4G check;
+the report does not claim that budget was met. A clean-host simulated rerun remains required.
 
 ## Static asset budgets
 
@@ -60,7 +62,9 @@ brief labels the locked, pre-supplied set as “131 KB total (already done)” w
 unit or rounding. Interpreted as a strict decimal ceiling of 131,000 bytes, the locked assets are
 1,072 bytes over; interpreted as rounded binary size, they are 129 KiB. No font asset was changed.
 
-`public/og.png` measures **1200×630** and **33,549 bytes**.
+`public/og.png` measures **1200×630** and **31,467 bytes**. It was opened after generation and
+the headline was visually confirmed as Asyyl Sans Display Bold rather than the former monospace
+fallback; the small white mark is present at bottom-left.
 
 ## Definition-of-done evidence
 
@@ -73,8 +77,11 @@ unit or rounding. Interpreted as a strict decimal ceiling of 131,000 bytes, the 
 - Screenshots: `home`, `sms`, `bms`, `services`, and `contact` each have final `-375.png` and
   `-1440.png` captures in `docs/review/`. Mobile captures used a 375×812 viewport,
   `deviceScaleFactor: 2`, and mobile emulation.
-- Reduced motion: all immediate reveals were visible and static; SMS typing and BMS ledger values
-  were verified in normal and reduced-motion modes by `scripts/verify-product-moments.mjs`.
+- Reduced motion: all immediate reveals were visible and static; SMS typing and both BMS ledger
+  lines were verified at their exact final strings in normal and reduced-motion modes by
+  `scripts/verify-product-moments.mjs`.
+- Console: all five routes were checked in normal and reduced-motion modes with no warnings,
+  uncaught exceptions, or console errors.
 - Keyboard: the mobile menu toggle is reachable, focus wraps through the menu back to the toggle,
   Escape closes it, and focus returns to the toggle. The open/close labels and dark menu tone were
   also asserted in `docs/review/checks.json`.
@@ -86,17 +93,18 @@ unit or rounding. Interpreted as a strict decimal ceiling of 131,000 bytes, the 
 
 ## Items that could not meet budget
 
-No code-controlled performance or quality budget is unmet. The only numerical caveat is the
-pre-supplied font set's ambiguous “131 KB” label described above; those locked files were outside
-the permitted edit scope.
+The Slow 4G Lighthouse budget is not certified in this run because the only default simulated
+retry was distorted by the host contention described above and measured below budget. The retained
+`provided`-throttling reports pass every numeric threshold but are not a substitute for that
+condition. The other numerical caveat is the pre-supplied font set's ambiguous “131 KB” label;
+those locked files were outside the permitted edit scope.
 
 ## Places the brief was unclear
 
-1. Task 6 requires exact contact-page copy, while the hard rules prohibit hard-coded page copy and
-   prohibit edits to `content/*.ts`; no contact content object exists. The page uses the exact copy
-   from BRIEF section 8 locally rather than inventing or modifying copy.
-2. The font budget does not state decimal versus binary units or rounding, while the locked files
+1. The font budget does not state decimal versus binary units or rounding, while the locked files
    measure 132,072 bytes. Both representations are reported above rather than treating an inferred
    unit as fact.
-3. The contact number was originally locked in `content/site.ts`; the later explicit instruction to
+2. The contact number was originally locked in `content/site.ts`; the later explicit instruction to
    change it to `08144045309` was treated as a direct exception limited to that number.
+3. The earlier contact-copy/source conflict is now resolved by `content/contact.ts`; the final
+   sections 3 and 8 introduced no additional implementation ambiguity.

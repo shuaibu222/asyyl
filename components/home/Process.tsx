@@ -1,7 +1,7 @@
 import { home } from "@/content/home";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Headline } from "@/components/ui/Headline";
+import { Headline } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Slide } from "@/components/ui/Slide";
 

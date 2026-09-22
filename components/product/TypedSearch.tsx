@@ -13,7 +13,7 @@ export function TypedSearch({ label }: TypedSearchProps) {
   const reducedMotion = useReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
   const ranRef = useRef(false);
-  const [value, setValue] = useState(reducedMotion ? query : "");
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     if (reducedMotion) {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Headline } from "@/components/ui/Headline";
+import { Headline } from "@/components/ui/Heading";
 import { Lead } from "@/components/ui/Lead";
 import { Reveal } from "@/components/ui/Reveal";
 import { Slide } from "@/components/ui/Slide";
@@ -17,27 +17,33 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main>
-      <Slide tone="light" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center">
-        <Container className="grid gap-7">
-          <Reveal duration={0.9} immediate>
-            <Headline level={1} className="max-w-[13ch]">{services.hero.headline}</Headline>
+      <Slide tone="light" className="flex min-h-[calc(100svh-3.5rem)] items-center">
+        <Container className="grid justify-items-center gap-7 text-center">
+          <Reveal duration={0.9} immediate className="w-full">
+            <h1 className="text-hero mx-auto max-w-5xl">{services.hero.headline}</h1>
           </Reveal>
           <Reveal delay={0.3} y={0} immediate>
-            <Lead>{services.hero.lead}</Lead>
+            <Lead className="mx-auto">{services.hero.lead}</Lead>
+          </Reveal>
+          <Reveal delay={0.42} y={24} immediate>
+            <Button variant="primary" href={site.cta.primary.href}>{site.cta.primary.label}</Button>
           </Reveal>
         </Container>
       </Slide>
 
       <Slide tone="dark">
         <Container>
-          <Reveal stagger={0.06} className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {services.offers.map((offer) => (
-              <article key={offer.title} className="grid h-full min-h-80 content-between gap-8 border border-[var(--line)] p-7 transition-colors duration-[var(--duration-quick)] ease-[var(--ease-brand)] hover:border-[var(--ink)] md:p-9">
-                <div className="grid gap-5">
+          <Reveal stagger={0.06} className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
+            {services.offers.map((offer, index) => (
+              <article key={offer.title} className="grid gap-6 py-8 md:grid-cols-12 md:gap-10 md:py-10">
+                <div className="grid content-start gap-4 md:col-span-4">
+                  <p className="eyebrow">{String(index + 1).padStart(2, "0")}</p>
                   <h2 className="font-display text-h3 font-semibold">{offer.title}</h2>
-                  <p>{offer.body}</p>
                 </div>
-                <p className="text-small text-[var(--ink-2)]">{offer.outcome}</p>
+                <div className="grid content-start gap-5 md:col-span-8">
+                  <p>{offer.body}</p>
+                  <p className="text-[var(--ink-2)]">{offer.outcome}</p>
+                </div>
               </article>
             ))}
           </Reveal>

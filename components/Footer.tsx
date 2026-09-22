@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 
 export function Footer() {
   return (
-    <footer data-tone="dark" className="content-auto border-t border-[var(--line)] py-16 [contain-intrinsic-size:auto_500px] md:py-20">
+    <footer data-tone="dark" className="border-t border-[var(--line)] py-16 md:py-20">
       <Container className="grid gap-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <a href="/" className="flex min-h-11 items-center gap-3 font-display text-h3 font-semibold">

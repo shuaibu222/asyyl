@@ -30,8 +30,8 @@ export function LedgerCount() {
   const reducedMotion = useReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
   const ranRef = useRef(false);
-  const [value, setValue] = useState(reducedMotion ? total : 0);
-  const [complete, setComplete] = useState(Boolean(reducedMotion));
+  const [value, setValue] = useState(0);
+  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
     if (reducedMotion) {
@@ -53,7 +53,7 @@ export function LedgerCount() {
 
         const tick = (now: number) => {
           const progress = Math.min((now - startedAt) / 1200, 1);
-          setValue(total * cubicBezier(progress));
+          setValue(progress < 1 ? total * cubicBezier(progress) : total);
           if (progress < 1) frame = requestAnimationFrame(tick);
           else setComplete(true);
         };

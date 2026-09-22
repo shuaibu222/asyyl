@@ -6,18 +6,11 @@ import { Lead } from "@/components/ui/Lead";
 import { Reveal } from "@/components/ui/Reveal";
 import { Shot } from "@/components/ui/Shot";
 import { Slide } from "@/components/ui/Slide";
-
-function headlineGroups(headline: string) {
-  const words = headline.split(" ");
-  const size = Math.ceil(words.length / 3);
-  return [words.slice(0, size), words.slice(size, size * 2), words.slice(size * 2)]
-    .filter((group) => group.length > 0)
-    .map((group) => group.join(" "));
-}
+import { headlineGroups } from "@/components/ui/headline";
 
 export function Hero() {
   return (
-    <Slide tone="light" defer={false} className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
+    <Slide tone="light" className="flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden">
       <Container className="grid gap-12 pt-6 text-center md:gap-16">
         <div className="mx-auto grid w-full min-w-0 max-w-5xl justify-items-center gap-7">
           <h1 className="text-hero -mx-gutter w-screen min-w-0 md:mx-0 md:w-full lg:max-w-4xl">
