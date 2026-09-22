@@ -37,6 +37,7 @@ The one idea, stated in the hero: **Software that works when the internet doesn'
 | Asyyl mark, white | `/brand/asyyl-mark-white.svg` | Nav on dark slides, footer |
 | SMS symbol | `/brand/asyyl-sms-symbol.svg`, `-white.svg` | Product card icon only |
 | Fonts | `/fonts/*.woff2` (5 files, 131 KB total) | Loaded by `globals.css` |
+| OG font | `assets/fonts/AsyylSansDisplay-Bold.ttf` (not shipped) | `scripts/og.mjs` text rendering only |
 | Portrait | `/people/shuaibu.jpg` | Founder section. 640px square, B&W, plus `shuaibu.avif`. Serve at 320 CSS px max; never enlarge. |
 | SMS screenshots | `/screens/sms/{name}-{width}.{avif,webp}` | See `content/*.ts` for which name goes where |
 | BMS screenshots | `/screens/bms/{name}-{width}.{avif,webp}` | Same |
@@ -148,11 +149,18 @@ Content is in `content/`. Section order is the order in those files. Summary:
 → proof (4 stats) → clients (logo-less list of names and cities, grouped by product) → founder
 (portrait left, two paragraphs right) → CTA → footer.
 
-**`/sms`, `/bms`** one `ProductPage` template: hero (headline, lead, screenshot) → moments
+**`/sms`, `/bms`** one `ProductPage` template: hero in **keynote composition, exactly like the
+home hero** (eyebrow, `text-hero` headline centred, lead centred, one primary WhatsApp button,
+screenshot below at full container width, not animated). Never a split hero: `text-hero` in a
+half-width column breaks one word per line. Then moments
 (4, alternating sides) → modules (grid of 5 lists) → delivery (4 cards) → FAQ (native `<details>`,
 styled) → CTA. Both have the signature moment named in section 6.
 
-**`/services`** hero → offers (5, each with title, body, outcome line) → cases (2) → CTA.
+**`/services`** hero in keynote composition (centred `text-hero` headline, lead, WhatsApp
+button; no screenshot) → offers as a **numbered agenda, not cards**: one row per offer, hairline
+between rows; left column (4 of 12) has the number `01`–`05` in `.eyebrow` and the title in
+`text-h3`; right column (8 of 12) has the body and the outcome line in `--ink-2`. Five rows never
+leave an orphan and never leave a half-empty card → cases (2 cards, as built) → CTA.
 
 **`/contact`** dark slide. Headline "Talk to Shuaibu." WhatsApp button (huge), call link, email
 link, "Kano, Nigeria", and three lines under "What happens next": I reply myself · We agree a visit
