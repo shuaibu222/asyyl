@@ -36,7 +36,7 @@ The one idea, stated in the hero: **Software that works when the internet doesn'
 | Asyyl mark, ink | `/brand/asyyl-mark.svg` | Nav on light slides, favicon source |
 | Asyyl mark, white | `/brand/asyyl-mark-white.svg` | Nav on dark slides, footer |
 | SMS symbol | `/brand/asyyl-sms-symbol.svg`, `-white.svg` | Product card icon only |
-| Fonts | `/fonts/*.woff2` (5 files, 131 KB total) | Loaded by `globals.css` |
+| Fonts | `/fonts/*.woff2` (5 subsets, ~129 KB total): Asyyl Sans 5.000 Text 400/500/600, Asyyl Sans Display 5.100 (sharp corners) 600/700, regenerated 2026-09-22 | Loaded by `globals.css`; same file and family names, so no CSS change |
 | OG font | `assets/fonts/AsyylSansDisplay-Bold.ttf` (not shipped) | `scripts/og.mjs` text rendering only |
 | Portrait | `/people/shuaibu.jpg` | Founder section. 640px square, B&W, plus `shuaibu.avif`. Serve at 320 CSS px max; never enlarge. |
 | SMS screenshots | `/screens/sms/{name}-{width}.{avif,webp}` | See `content/*.ts` for which name goes where |
