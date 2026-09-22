@@ -1,6 +1,6 @@
 # Asyyl website brief
 
-This is the design contract for asyylsms.com. Design, copy and tokens are owned by Shuaibu and
+This is the design contract for asyyl.com. Design, copy and tokens are owned by Shuaibu and
 Claude. Codex builds to this brief. When something here is unclear, ask; do not invent.
 
 ## 1. What this site is

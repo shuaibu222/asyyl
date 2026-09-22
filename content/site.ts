@@ -7,7 +7,7 @@ export const site = {
   tagline: "Software that works when the internet doesn't.",
   description:
     "Asyyl builds offline school and business systems for Nigeria. Installed on your own computer, trained by the person who built it.",
-  url: "https://asyylsms.com",
+  url: "https://asyyl.com",
   locale: "en-NG",
   city: "Kano",
   country: "Nigeria",
@@ -22,7 +22,7 @@ export const site = {
     whatsappDisplay: "0814 404 5309",
     whatsappUrl:
       "https://wa.me/2348144045309?text=" +
-      encodeURIComponent("Hello Shuaibu, I saw asyylsms.com and I want to talk about "),
+      encodeURIComponent("Hello Shuaibu, I saw asyyl.com and I want to talk about "),
     phone: "+2348144045309",
     phoneDisplay: "0814 404 5309",
     email: "asyylsms@gmail.com",
